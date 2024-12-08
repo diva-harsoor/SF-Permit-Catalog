@@ -13,6 +13,7 @@ function App() {
   const results = [
     'apple',
     'Banana',
+    'apple cider',
     'orange juice',
   ].filter(item => item.toLowerCase().includes(keyword.toLowerCase()));
 
@@ -26,8 +27,7 @@ function App() {
       </header>
       <SearchBar onSearch={handleSearch} />
 
-        {searchResults}
-      {setSearchResults.length > 0 && (
+      {searchResults.length > 0 && (
         <ul>
           {searchResults.map((result, index) => (
             <li key={index}>{result}</li>
