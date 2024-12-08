@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Mobile Food Facility",
+    "code": "FoodFac",
+    "agency": "Public Works",
+    "info_link": "https://sfpublicworks.org/services/permits/mobile-food-facilities",
+    "application_link": "https://sfpublicworks.org/sites/default/files/Application_for_Mobile_Food_Facility.pdf",
+    "fees": 1072
+  },
+  {
+    "name": "Shared Spaces",
+    "code": "Parklet",
+    "agency": "Public Works, MTA, Planning, City Administrator",
+    "info_link": "https://www.sf.gov/apply-shared-spaces-permit-sidewalk-or-parking-lane",
+    "application_link": "https://www.sf.gov/form-shared-spaces-2024/form",
+    "fees": 1130
+  },
+  {
+    "name": "Free Sample Merchandise",
+    "code": "FreeSample",
+    "agency": "Public Works",
+    "info_link": "https://sfpublicworks.org/services/permits/free-sample-merchandise",
+    "application_link": "https://www.sfpublicworks.org/sites/default/files/3274-%28%20FSM%20%29%20APPL%20-%20Free%20Sample%20Merchandise_0.pdf",
+    "fees": 500
+  },
+  {
+    "name": "Tables and Chairs",
+    "code": "TableChair",
+    "agency": "Public Works",
+    "info_link": "https://www.sfpublicworks.org/services/permits/cafe-tables-and-chairs",
+    "application_link": "https://www.sf.gov/apply-shared-spaces-permit-sidewalk-or-parking-lane",
+    "fees": 171
+  },
+  {
+    "name": "Street Vendor Permit",
+    "code": "Referral",
+    "agency": "Public Works, City Administrator",
+    "info_link": "https://www.sf.gov/apply-street-vending-permit",
+    "application_link": "https://www.sf.gov/apply-street-vending-permit/form",
+    "fees": 482
+  }
+]
