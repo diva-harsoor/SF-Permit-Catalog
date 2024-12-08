@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import SearchBar from './components/SearchBar';
 
 function App() {
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = (keyword) => {
+    console.log('Searching for:', keyword)
+
+  // Simulated search to test
+  const results = [
+    'apple',
+    'Banana',
+    'orange juice',
+  ].filter(item => item.toLowerCase().includes(keyword.toLowerCase()));
+
+  setSearchResults(results);
+};
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Helloooo
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Search Bar Example</h1>
       </header>
+      <SearchBar onSearch={handleSearch} />
+
+        {searchResults}
+      {setSearchResults.length > 0 && (
+        <ul>
+          {searchResults.map((result, index) => (
+            <li key={index}>{result}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
