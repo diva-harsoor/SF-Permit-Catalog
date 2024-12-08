@@ -1,3 +1,19 @@
+# Client and server
+node_modules/
+client/node_modules/
+
+client/build/
+
+client/package-lock.json
+client/package.json
+
+.env
+
+server/node_modules/
+server/package-lock.json
+server/package.json
+server/.env
+
 # Logs
 logs
 *.log
