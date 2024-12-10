@@ -1,23 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);  
 
-  const handleSearch = (keyword) => {
+  const handleSearch = async (keyword) => {
     console.log('Searching for:', keyword)
 
-  // Simulated search to test
-  const results = [
-    'apple',
-    'Banana',
-    'apple cider',
-    'orange juice',
-  ].filter(item => item.toLowerCase().includes(keyword.toLowerCase()));
+    try {
+      const response = await fetch(`http://localhost:3001/permits?name=${keyword}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data from the server');
+      }
+      const data = await response.json();
+      setSearchResults(data); 
+    } catch (error) {
+      console.error('error fetching data:', error);
+    }
 
-  setSearchResults(results);
 };
 
   return (
@@ -30,7 +32,7 @@ function App() {
       {searchResults.length > 0 && (
         <ul>
           {searchResults.map((result, index) => (
-            <li key={index}>{result}</li>
+            <li key={index}>{result.name}</li>
           ))}
         </ul>
       )}
