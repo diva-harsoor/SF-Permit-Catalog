@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
+import Result from './components/Result';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);  
@@ -25,14 +26,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Search Bar Example</h1>
+        <h1>SF Permit Catalog</h1>
       </header>
       <SearchBar onSearch={handleSearch} />
 
       {searchResults.length > 0 && (
-        <ul>
+        <ul className="no-bullets">
           {searchResults.map((result, index) => (
-            <li key={index}>{result.name}</li>
+            <li key={index}> <Result props={result}/> </li>
           ))}
         </ul>
       )}
