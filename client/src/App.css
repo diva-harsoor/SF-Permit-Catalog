@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  padding: 10px;
 }
 
 .App-logo {
@@ -39,7 +39,7 @@
 
 .no-bullets {
   list-style-type: none;
-  padding: 5px 10px;
+  padding: 5px 0px;
   margin: 0;
 }
 
@@ -104,4 +104,22 @@
 
 .apply-now:hover {
   background-color: #0056b3;
+}
+
+.chosen-filter {
+  display: flex;
+  background-color: #009999;
+  padding: 0px 5px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.chosen-filter p {
+  color: white;
+}
+
+.chosen-filter button {
+  color: #bb0000;
+  border-width: 0; 
 }

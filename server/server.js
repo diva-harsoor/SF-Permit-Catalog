@@ -25,7 +25,7 @@ const permits = require('./starter-permits.json');
 
 // Create an endpoint to serve the permits data
 app.get('/permits', (req, res) => {
-    const { name, agency } = req.query;
+    const { name, agency, maxFees } = req.query;
     let filteredPermits = permits;
 
     if (name) {
@@ -37,6 +37,12 @@ app.get('/permits', (req, res) => {
     if (agency) {
         filteredPermits = filteredPermits.filter(permit => 
             permit.agency.toLowerCase().includes(agency.toLowerCase())
+        );
+    }
+
+    if (maxFees) {
+        filteredPermits = filteredPermints.filter(permit => 
+            permit.fees <= maxFees
         );
     }
     
