@@ -9,12 +9,22 @@ import ChosenFilter from './components/ChosenFilter';
 function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [value, setValue] = useState("");
+  const [keyword, setKeyword] = useState("");
+
+  const constructQuery = (keyword, agency) => {
+    let query = 'http://localhost:3001/permits?';
+    if (keyword) query += `name=${encodeURIComponent(keyword)}`;
+    if (agency) query += `${keyword ? '&' : ''}agency=${encodeURIComponent(agency)}`;
+    return query;
+  };
 
   const handleSearch = async (keyword) => {
-    console.log('Searching for:', keyword)
+    console.log('Searching for:', keyword);
+    const query = constructQuery(keyword, value);
+    console.log(query)
 
     try {
-      const response = await fetch(`http://localhost:3001/permits?name=${keyword}`);
+      const response = await fetch(query);
       if (!response.ok) {
         throw new Error('Failed to fetch data from the server');
       }
@@ -27,9 +37,11 @@ function App() {
 
 const handleFilter = async (filter) => {
   console.log('Filtering by:', filter);
+  const query = constructQuery(keyword, filter);
+  console.log(query);
 
   try {
-    const response = await fetch(`http://localhost:3001/permits?agency=${filter}`);
+    const response = await fetch(query);
     if (!response.ok) {
       throw new Error('Failed to fetch data from the server');
     }
@@ -40,13 +52,12 @@ const handleFilter = async (filter) => {
   }
 };
 
-
   return (
     <div className="App">
       <header className="App-header">
         <h1>SF Permit Catalog</h1>
       </header>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar keyword={keyword} setKeyword={setKeyword} onSearch={handleSearch} />
       <Filter value={value} setValue={setValue} onFilter={handleFilter} />
       <ChosenFilter value={value}/>
 
