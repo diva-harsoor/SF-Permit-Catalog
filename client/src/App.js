@@ -59,14 +59,16 @@ const handleFilter = async (filter) => {
       </header>
       <SearchBar keyword={keyword} setKeyword={setKeyword} onSearch={handleSearch} />
       <Filter value={value} setValue={setValue} onFilter={handleFilter} />
-      {keyword && (<ChosenFilter value={keyword} onX={() => {
-        setKeyword("");
-        handleSearch("", value);
-      }}/>)}
-      {value && (<ChosenFilter value={value} onX={() => {
-        setValue("");
-        handleSearch(keyword, "");
-      }}/>)}
+      <div className="chosen-filter-list">
+        {keyword && (<ChosenFilter value={keyword} onX={() => {
+          setKeyword("");
+          handleSearch("", value);
+        }}/>)}
+        {value && (<ChosenFilter value={value} onX={() => {
+          setValue("");
+          handleSearch(keyword, "");
+        }}/>)}
+      </div>
       {searchResults.length > 0 && (
         <div>
           <h2>Results for your search</h2>

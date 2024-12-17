@@ -106,11 +106,16 @@
   background-color: #0056b3;
 }
 
+.chosen-filter-list {
+  display: flex;
+  flex-direction: row;
+}
+
 .chosen-filter {
   display: flex;
   background-color: #009999;
   padding: 0px 5px;
-  margin: 5px 0px;
+  margin: 5px 5px 5px 0px;
   border-radius: 10px;
   width: fit-content;
 }
