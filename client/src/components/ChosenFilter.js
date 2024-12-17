@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
-function ChosenFilter ({value}) {
+function ChosenFilter ({value, onX}) {
     return (
         <div className="chosen-filter">
             <p className="chosen-filter">{value}</p>
-            <button className="chosen-filter">x</button>
+            <button onClick={() => onX("")} className="chosen-filter">x</button>
         </div>
     )
 };

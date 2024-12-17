@@ -18,10 +18,10 @@ function App() {
     return query;
   };
 
-  const handleSearch = async (keyword) => {
-    console.log('Searching for:', keyword);
-    const query = constructQuery(keyword, value);
-    console.log(query)
+  const handleSearch = async (updatedKeyword = keyword, updatedValue = value) => {
+    console.log('Searching with:', { updatedKeyword, updatedValue });
+    const query = constructQuery(updatedKeyword, updatedValue);
+    console.log("Query:", query)
 
     try {
       const response = await fetch(query);
@@ -59,8 +59,14 @@ const handleFilter = async (filter) => {
       </header>
       <SearchBar keyword={keyword} setKeyword={setKeyword} onSearch={handleSearch} />
       <Filter value={value} setValue={setValue} onFilter={handleFilter} />
-      <ChosenFilter value={value}/>
-
+      {keyword && (<ChosenFilter value={keyword} onX={() => {
+        setKeyword("");
+        handleSearch("", value);
+      }}/>)}
+      {value && (<ChosenFilter value={value} onX={() => {
+        setValue("");
+        handleSearch(keyword, "");
+      }}/>)}
       {searchResults.length > 0 && (
         <div>
           <h2>Results for your search</h2>

@@ -28,6 +28,10 @@ app.get('/permits', (req, res) => {
     const { name, agency, maxFees } = req.query;
     let filteredPermits = permits;
 
+    if (!name && !agency && !maxFees) {
+        return res.json([]); // Return an empty array when no filters are applied
+    }
+
     if (name) {
         filteredPermits = filteredPermits.filter(permit =>
             permit.name.toLowerCase().includes(name.toLowerCase())
